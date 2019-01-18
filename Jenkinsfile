@@ -38,6 +38,9 @@ pipeline {
         }
         success {
             echo 'I succeeeded!'
+	    mail to: 'michael.chanslor@gmail.com',
+	    subject: "success Pipeline: ${currentBuild.fullDisplayName}",
+	    body: "Pipeline build worked on ${env.BUILD_URL}"
         }
         unstable {
             echo 'I am unstable :/'
